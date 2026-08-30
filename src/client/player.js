@@ -1,5 +1,5 @@
 const { DisTube } = require('distube');
-const { CustomYouTubePlugin } = require('../plugins/customYtPlugin');
+const { YouTubePlugin } = require('@distube/youtube');
 const { SpotifyPlugin } = require('@distube/spotify');
 const { SoundCloudPlugin } = require('@distube/soundcloud');
 const { DeezerPlugin } = require('@distube/deezer');
@@ -21,7 +21,7 @@ function initPlayer(client) {
   }
 
   const plugins = [
-    new CustomYouTubePlugin(),
+    new YouTubePlugin(),
     new SpotifyPlugin(spotifyOptions),
     new SoundCloudPlugin(),
     new DeezerPlugin(),

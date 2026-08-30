@@ -1,17 +1,15 @@
 FROM node:20-bookworm-slim
 
+# Install system audio dependencies, ffmpeg, build tools, and Python 3.11+
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     ffmpeg \
     python3 \
     python3-pip \
-    curl \
-    ca-certificates \
     make \
     g++ \
     build-essential \
     libsodium-dev \
-    && pip3 install --break-system-packages -U yt-dlp \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
