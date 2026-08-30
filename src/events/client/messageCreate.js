@@ -53,6 +53,14 @@ module.exports = {
             query = query.slice(1, -1).trim();
           }
 
+          // Check if query is a non-Spotify URL
+          const isUrl = /^https?:\/\//i.test(query);
+          const isSpotify = /^(https?:\/\/)?(open\.)?spotify\.com/i.test(query) || /^spotify:/i.test(query);
+
+          if (isUrl && !isSpotify) {
+            return message.reply('⚠️ Saat ini pemutaran link hanya mendukung **Spotify** (Lagu / Album / Playlist)!\nSilakan gunakan link dari Spotify (contoh: `https://open.spotify.com/track/...` atau `https://open.spotify.com/playlist/...`).');
+          }
+
           // Suppress embed
           try {
             if (message.deletable) {
