@@ -1,5 +1,5 @@
 const { DisTube } = require('distube');
-const { YouTubePlugin } = require('@distube/youtube');
+const { CustomYouTubePlugin } = require('../plugins/customYtPlugin');
 const { SpotifyPlugin } = require('@distube/spotify');
 const { SoundCloudPlugin } = require('@distube/soundcloud');
 const { DeezerPlugin } = require('@distube/deezer');
@@ -8,7 +8,6 @@ const ffmpegStatic = require('ffmpeg-static');
 
 /**
  * Initializes and configures the DisTube music player instance (DisTube v5 compatible)
- * Pure JavaScript Audio Engine (Zero Python dependency)
  * @param {import('discord.js').Client} client
  * @returns {DisTube}
  */
@@ -22,7 +21,7 @@ function initPlayer(client) {
   }
 
   const plugins = [
-    new YouTubePlugin(),
+    new CustomYouTubePlugin(),
     new SpotifyPlugin(spotifyOptions),
     new SoundCloudPlugin(),
     new DeezerPlugin(),
