@@ -7,7 +7,7 @@ const ffmpegStatic = require('ffmpeg-static');
 
 /**
  * Initializes and configures the DisTube music player instance (DisTube v5 compatible)
- * Pure, reliable audio streaming via Spotify, SoundCloud, Deezer, and Direct Links.
+ * Fine-tuned for smooth, high-fidelity audio without stutter or packet loss.
  * @param {import('discord.js').Client} client
  * @returns {DisTube}
  */
@@ -27,6 +27,8 @@ function initPlayer(client) {
     new DirectLinkPlugin(),
   ];
 
+  const ffmpegPath = process.platform === 'win32' ? (ffmpegStatic || 'ffmpeg') : 'ffmpeg';
+
   const distube = new DisTube(client, {
     plugins: plugins,
     emitNewSongOnly: true,
@@ -35,7 +37,18 @@ function initPlayer(client) {
     emitAddListWhenCreatingQueue: false,
     joinNewVoiceChannel: false,
     ffmpeg: {
-      path: ffmpegStatic,
+      path: ffmpegPath,
+      args: {
+        global: {
+          reconnect: '1',
+          reconnect_streamed: '1',
+          reconnect_delay_max: '5',
+        },
+        input: {
+          probesize: '1024k',
+          analyzeduration: '500000',
+        },
+      },
     },
   });
 

@@ -4,11 +4,11 @@ const config = require('../../../config.json');
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('play')
-    .setDescription('Putar musik dari link Spotify (Track / Album / Playlist) atau judul lagu')
+    .setDescription('Putar musik dari link (Spotify, SoundCloud, Deezer, Apple Music, dll) atau judul lagu')
     .addStringOption((option) =>
       option
         .setName('query')
-        .setDescription('Judul lagu atau URL Spotify (Track / Album / Playlist)')
+        .setDescription('Judul lagu atau URL (Lagu / Album / Playlist)')
         .setRequired(true)
         .setMaxLength(500)
     ),
@@ -23,17 +23,6 @@ module.exports = {
     if (!query || query.length === 0) {
       return interaction.reply({
         content: '❌ Harap masukkan judul lagu atau link URL yang valid!',
-        ephemeral: true,
-      });
-    }
-
-    // Check if query is a non-Spotify URL
-    const isUrl = /^https?:\/\//i.test(query);
-    const isSpotify = /^(https?:\/\/)?(open\.)?spotify\.com/i.test(query) || /^spotify:/i.test(query);
-
-    if (isUrl && !isSpotify) {
-      return interaction.reply({
-        content: '⚠️ Saat ini pemutaran link hanya mendukung **Spotify** (Lagu / Album / Playlist)!\nSilakan gunakan link dari Spotify (contoh: `https://open.spotify.com/track/...` atau `https://open.spotify.com/playlist/...`).',
         ephemeral: true,
       });
     }
