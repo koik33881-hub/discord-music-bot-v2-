@@ -1,6 +1,6 @@
 const { DisTube } = require('distube');
 const { SpotifyPlugin } = require('@distube/spotify');
-const { YouTubePlugin } = require('@distube/youtube');
+const { SoundCloudPlugin } = require('@distube/soundcloud');
 const { Client, GatewayIntentBits } = require('discord.js');
 
 console.log('Testing full playlist extraction pipeline:');
@@ -10,7 +10,7 @@ const client = new Client({
 });
 
 const distube = new DisTube(client, {
-  plugins: [new YouTubePlugin(), new SpotifyPlugin()],
+  plugins: [new SpotifyPlugin(), new SoundCloudPlugin()],
 });
 
-console.log('✅ DisTube initialized with YouTubePlugin and SpotifyPlugin (0% Python dependency).');
+console.log('✅ DisTube initialized with SpotifyPlugin and SoundCloudPlugin (Pure Music Engine).');

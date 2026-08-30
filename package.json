@@ -25,7 +25,6 @@
     "@distube/direct-link": "^1.0.1",
     "@distube/soundcloud": "^2.0.4",
     "@distube/spotify": "^2.0.2",
-    "@distube/youtube": "^1.0.4",
     "@ffmpeg-installer/ffmpeg": "^1.1.0",
     "@noble/ciphers": "^2.4.0",
     "@stablelib/xchacha20poly1305": "^2.0.1",
