@@ -1,0 +1,33 @@
+{
+  "prefix": "!",
+  "embedColor": "#00BFFF",
+  "errorColor": "#FF4444",
+  "successColor": "#00C851",
+  "defaultVolume": 50,
+  "maxQueueDisplay": 10,
+  "buttonCooldownMs": 1000,
+  "commandCooldownMs": 1500,
+  "maxPlaylistsPerGuild": 50,
+  "maxSongsPerPlaylist": 100,
+  "stayInVoice247": false,
+  "leaveOnEmpty": true,
+  "emptyCooldown": 60,
+  "leaveOnFinish": false,
+  "leaveOnStop": true,
+  "emojis": {
+    "music": "💿",
+    "play": "▶️",
+    "pause": "⏸️",
+    "resume": "▶️",
+    "skip": "⏭️",
+    "back": "⏮️",
+    "stop": "⏹️",
+    "loop": "🔁",
+    "autoplay": "📻",
+    "volume": "🔊",
+    "queue": "📜",
+    "rewind": "⏪",
+    "forward": "⏩",
+    "replay": "🔄"
+  }
+}
